@@ -10,6 +10,7 @@ install Docker desktop
 1. Ejecute the database with docker compose inside the project postgresql.yaml
 
     docker volume create data-postgres
+
     docker-compose -f postgresql.yaml up
 2. Clean and install the app
 
