@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: store-demo
+  jpa:
+    # Provide database platform that is being used
+    #database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      # New database is created when application starts and destroyed when application is stopped
+      ddl-auto: update
+    # Show sql when spring data jpa performs query
+    show-sql: true
+    properties:
+      hibernate:
+        # Format queries
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    # URL connection to database (spring-security is database name)
+    url: jdbc:postgresql://localhost:5432/postgres
+    # H2 sql Driver
+    #driver-class-name: org.h2.Driver
+    username: postgres
+    password: secret
+
+logging:
+  level:
+    root: INFO
+    my.app: INFO
+  file:
+    path: './logs/${spring.application.name}'
+    name: ${logging.file.path}/my-app.log
+
+product:
+  proxy: https://fakestoreapi.com/products
+    
+error:
+  generic-msg: Sorry, something went wrong
+  client-not-found: Client not found with ID -> 
+  product-not-found: Product not found with ID -> 
+  order-not-found: Order not found with ID ->  
+  order-detail-not-found: OrderDetail not found with ID ->  

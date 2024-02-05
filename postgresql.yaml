@@ -1,0 +1,18 @@
+version: '3.1'
+
+services: 
+  db:
+    image: 'postgres:15.5-alpine'
+    ports:
+     - 5432:5432
+    container_name: db
+    volumes:
+      - data-postgres:/var/lib/backup/data
+    
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=secret
+volumes:
+  data-postgres:
+    external: true
+
